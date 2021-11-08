@@ -20,6 +20,10 @@
 #define LCD_Cmd_Dir DDRC 
 #define LCD_Data_Dir DDRD 
 
+/*Array to store hexadecimal values for custom characters */
+const short Custorm_Chars5X8[] = {0x0E,0x1B,0x11,0x11,0x1F,0x1F,0x1F,0x00,};// Code for CGRAM memory space 0: Battery
+
+
 void LCD_Cmd(unsigned char cmd){ 
 	LCD_Data_Port = cmd; 
 	LCD_Cmd_Port &= ~(1<<RS); /* RS=0 command reg. */ 
