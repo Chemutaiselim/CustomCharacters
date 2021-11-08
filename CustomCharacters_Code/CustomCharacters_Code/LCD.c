@@ -79,3 +79,10 @@ void LCD_String_xy (char row, char pos, char *str){
 			} 
 			LCD_String(str); /* Call LCD string function */
 }
+
+void Load_Custom_Char(){ /*Load custom char into the CGROM*/
+	LCD_Cmd(0x40); // Set CGRAM Address
+	for (int i = 0; i <= sizeof(Custorm_Chars5X8); i++)
+	LCD_Char(Custorm_Chars5X8[i]);
+	LCD_Cmd(0x80); // Return to Home 
+	}
