@@ -12,11 +12,7 @@
 #include "LCD.h"
  /*Inclusion of our own defined header file*/
  
-/*Array to store hexadecimal values for custom characters */ 
-const short Custorm_Chars5X8[] = { 
-	0x0E,0x1B,0x11,0x11,0x1F,0x1F,0x1F,0x00,// Code for CGRAM memory space 0: Battery 
-}
-	
+
 /*Our main program*/ 
 int main(void){ 
 	LCD_Init(); /* Initialize LCD */ 
