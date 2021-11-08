@@ -19,9 +19,21 @@ int main(void){
 	Load_Custom_Char(); /* Load custom characters into CGRAM */ 
 	LCD_Clear(); /* Clear LCD */ 
 	LCD_String("Custom Chars");/* Display string on screen */ 
-	_delay_ms(1000); 
+	_delay_ms(500); 
 	LCD_Cmd(0xC0); /* Place cursor on the second row */ 
-	LCD_Char(0x00); /* Display the character in address 0x00 of CGRAM*/ 
+	
+	const short Char5X8[] = {0x00,0x01,0x02,0x03,0x04,0x05,0x06};
+	for (int x=1; x<=sizeof(Char5X8); x++)
+	{
+		LCD_Char(x);
+		LCD_String(" ");
+		_delay_ms(100);
+		
+	}
+	
+	
+	
+	
 	return 0;
 }
 
