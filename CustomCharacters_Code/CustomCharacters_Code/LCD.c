@@ -22,6 +22,15 @@
 
 /*Array to store hexadecimal values for custom characters */
 const short Custorm_Chars5X8[] = {0x0E,0x1B,0x11,0x11,0x1F,0x1F,0x1F,0x00,};// Code for CGRAM memory space 0: Battery
+const short Cord5X8[]={0x0,0xa,0x1f,0x1f,0xe,0x4,0x4};//Code for Charger 
+const short Tower5x8[]={0x1f,0x15,0xe,0x4,0x4,0x4,0x4};//Code for tower
+const short DataCell5x8[]={0x1,0x1,0x5,0x5,0x15,0x15,0x15};//COde for data cell
+const short HalfCord5X8[]={0xa,0xa,0x1f,0x11,0x11,0xe,0x4};//Code for Half filled cord 
+const short Bluetooth5X8[]={0x4,0x16,0xf,0x4,0xf,0x16,0x4};//Code for Blue tooth
+const short Bell5x8[]={	0x4,0xe,0xe,0xe,0x1f,0x0,0x4};//hexCode for Bell
+const short Music5x8[]={0x3,0x7,0xd,0x9,0xb,0x1b,0x18};//Hex code for Music
+	
+
 
 
 void LCD_Cmd(unsigned char cmd){ 
@@ -88,5 +97,21 @@ void Load_Custom_Char(){ /*Load custom char into the CGROM*/
 	LCD_Cmd(0x40); // Set CGRAM Address
 	for (int i = 0; i <= sizeof(Custorm_Chars5X8); i++)
 	LCD_Char(Custorm_Chars5X8[i]);
-	LCD_Cmd(0x80); // Return to Home 
+	for (int i = 0; i <= sizeof(Cord5X8); i++)	
+	LCD_Char(Cord5X8[i]);
+	for (int i = 0; i <= sizeof(Tower5x8); i++){
+	LCD_Char(Tower5x8[i]);
+	LCD_Char(DataCell5x8[i]);	
+	}
+	
+	for (int i = 0; i <= sizeof(HalfCord5X8); i++)
+	LCD_Char(HalfCord5X8[i]);
+	for (int i = 0; i <= sizeof(Bluetooth5X8); i++)
+	LCD_Char(Bluetooth5X8[i]);
+	for (int i = 0; i <= sizeof(Bell5x8); i++)
+	LCD_Char(Bell5x8[i]);
+	for (int i = 0; i <= sizeof(Music5x8); i++)
+	LCD_Char(Music5x8[i]);
+
+	LCD_Cmd(0x80); // Return to Home
 	}
